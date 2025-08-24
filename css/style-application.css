@@ -105,7 +105,7 @@ nav {
   background-color: #FFD700;
 }
 
-/* ===================== Responsive ===================== */
+/* ===================== Responsive Navigation ===================== */
 @media screen and (max-width:768px) {
   .nav-links {
     display: none;
@@ -167,6 +167,32 @@ form.application-form select {
   box-sizing: border-box;
 }
 
+/* ===================== File Input Styling ===================== */
+form.application-form input[type="file"] {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+form.application-form input[type="file"]::file-selector-button {
+  background-color: #8B0000;
+  color: #FFD700;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 15px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+form.application-form input[type="file"]::file-selector-button:hover {
+  background-color: #a50000;
+}
+
+/* ===================== Submit Button ===================== */
 form.application-form button {
   background-color: #8B0000;
   color: #FFD700;
@@ -294,7 +320,7 @@ form.application-form button:hover {
   margin: 5px 0;
 }
 
-/* Responsive Footer */
+/* ===================== Responsive Footer ===================== */
 @media screen and (max-width:768px) {
   .footer-container {
     flex-direction: column;
@@ -302,5 +328,13 @@ form.application-form button:hover {
   }
   .footer-contacts {
     justify-content: flex-start;
+  }
+  form.application-form input[type="file"] {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+  form.application-form button {
+    width: 100%;
+    padding: 12px;
   }
 }
