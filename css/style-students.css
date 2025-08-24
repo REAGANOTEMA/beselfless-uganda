@@ -1,0 +1,353 @@
+/* ===================== General Styles ===================== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('../images/background-students.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* ===================== Header ===================== */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFD700;
+  padding: 8px 15px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid #8B0000;
+}
+
+.top-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.top-ribbon .logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #FF0000;
+  background-color: #FFD700;
+}
+.top-ribbon .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.top-ribbon .logo img:hover { transform: scale(1.05); }
+
+.top-ribbon .org-info h1,
+.top-ribbon .org-info p {
+  margin: 0;
+  color: #8B0000;
+  font-weight: bold;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+/* ===================== Navigation ===================== */
+nav { width: 100%; background-color: #8B0000; }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 0;
+  padding: 8px 0;
+}
+.nav-links li a {
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.nav-links li a:hover { text-decoration: underline; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #FFD700;
+}
+
+/* ===================== Hero Section ===================== */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Base img rule (safe) */
+.hero-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.8s ease;
+}
+.hero-section img:hover { transform: scale(1.03); }
+
+/* Slideshow FIX (stack + fade) */
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  will-change: opacity;
+}
+.hero-slide.active { opacity: 1; }
+
+/* Overlay above slides */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.25);
+}
+.hero-overlay h1 {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: bold;
+  animation: fadeSlideIn 2s ease forwards;
+  animation-delay: 0.3s;
+}
+.hero-overlay p {
+  font-size: 1.4rem;
+  margin-top: 5px;
+  animation: fadeSlideIn 2s ease forwards;
+  animation-delay: 0.8s;
+}
+@keyframes fadeSlideIn {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Buttons */
+.btn-hero, .btn-apply, .btn-apply-large {
+  display: inline-block;
+  background: linear-gradient(45deg, #FFD700, #FF4500);
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+}
+.btn-hero:hover, .btn-apply:hover, .btn-apply-large:hover {
+  transform: scale(1.07);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* Optional button effects used by JS */
+.btn-hero.fade { opacity: 0.6; }
+.btn-hero.glow { box-shadow: 0 0 18px rgba(255,165,0,0.85); }
+
+/* Shake Animation (used by JS) */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+.shake { animation: shake 0.6s; }
+
+/* ===================== Highlights ===================== */
+.highlights {
+  max-width: 1100px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 20px;
+}
+.highlights h2 { color: #8B0000; margin-bottom: 15px; }
+.highlights p { font-size: 1.2rem; line-height: 1.7; margin-bottom: 25px; }
+.highlights ul { list-style: none; padding: 0; }
+.highlights ul li {
+  background: rgba(255,255,255,0.9);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+.highlights ul li:hover { transform: translateY(-5px); }
+
+/* ===================== Students Gallery ===================== */
+.students-gallery {
+  padding: 40px 20px;
+  text-align: center;
+  background: #f9f9f9;
+}
+.students-gallery h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+.student {
+  margin: 20px auto;
+  max-width: 1000px; /* allow wider image card */
+  text-align: center;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+.student.visible {
+  transform: scale(1);
+  opacity: 1;
+}
+/* Christmas / gallery image widened */
+.student img {
+  width: 100%;
+  max-width: 900px; /* wider to feature the Christmas photo */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  display: block;
+  margin: 0 auto 15px;
+  object-fit: cover;
+}
+.student p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 900px;
+}
+/* hover scale handled with class for smoother perf */
+.student.hovered { transform: scale(1.05); }
+
+/* ===================== Timeline ===================== */
+.timeline {
+  max-width: 900px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 10px;
+}
+.timeline-item h2 { color: #8B0000; margin-bottom: 5px; }
+.timeline-item p {
+  background: rgba(255,255,255,0.85);
+  padding: 12px;
+  border-radius: 8px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===================== Footer ===================== */
+.footer-flag { display: flex; height: 6px; width: 100%; }
+.footer-flag span { flex: 1; }
+.footer-flag .black { background-color: #000; }
+.footer-flag .yellow { background-color: #FFD700; }
+.footer-flag .red { background-color: #FF0000; }
+
+.footer {
+  background-color: #0B3D91;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 30px 20px;
+}
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+.footer-section h3, .footer-section h4 { color: #FFD700; margin-bottom: 10px; }
+.footer-text { color: #eee; line-height: 1.5; margin-bottom: 8px; }
+
+.footer-links li, .footer-policies li { margin-bottom: 5px; }
+.footer-links li a, .footer-policies li a {
+  color: #fff; text-decoration: none; transition: color 0.3s ease;
+}
+.footer-links li a:hover, .footer-policies li a:hover { color: #FFD700; }
+
+.footer-contacts { display: flex; gap: 12px; margin-top: 8px; }
+.footer-contacts img {
+  width: 35px; height: 35px; object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.footer-contacts img.hovered {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.5);
+}
+
+.footer-bottom { text-align: center; padding: 15px 0 0; font-size: 0.9rem; color: #ccc; }
+.footer-bottom p { margin: 3px 0; }
+
+.back-to-top {
+  padding: 8px 12px;
+  margin-top: 10px;
+  background-color: #FFD700;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #8B0000;
+  transition: transform 0.3s ease;
+}
+.back-to-top:hover { transform: scale(1.05); }
+
+/* ===================== Responsive ===================== */
+@media screen and (max-width:768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #8B0000;
+    width: 100%;
+    padding: 8px;
+    position: absolute;
+    top: 110px;
+    right: 0;
+  }
+  .nav-links.show { display: flex; }
+  .hamburger { display: flex; }
+
+  header { flex-direction: column; align-items: flex-start; }
+  header .org-info { text-align: left; margin-top: 8px; }
+  .top-ribbon { flex-direction: column; gap: 8px; }
+
+  .timeline { margin: 25px 10px; gap: 15px; }
+  .hero-section { height: 80vh; }
+  .hero-overlay h1 { font-size: 2rem; }
+  .hero-overlay p { font-size: 1rem; }
+
+  .student img { max-width: 100%; border-radius: 10px; }
+  .student p { font-size: 1rem; padding: 0 10px; max-width: 100%; }
+}
