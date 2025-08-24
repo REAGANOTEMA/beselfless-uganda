@@ -338,3 +338,45 @@ form.application-form button:hover {
     padding: 12px;
   }
 }
+/* Default hidden nav on mobile */
+.nav-links {
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+.nav-links.show {
+  display: flex;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background: #333;
+  transition: all 0.3s ease;
+}
+
+/* Show hamburger on mobile */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links { position: absolute; right: 10px; }
+}
+
+/* Optional animation for hamburger */
+.hamburger.active div:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active div:nth-child(2) { opacity: 0; }
+.hamburger.active div:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }

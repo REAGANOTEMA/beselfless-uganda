@@ -5,7 +5,7 @@ const navLinks = document.querySelector('.nav-links');
 if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('show');
-        hamburger.classList.toggle('active'); // Optional animation for hamburger
+        hamburger.classList.toggle('active');
     });
 }
 
@@ -20,7 +20,6 @@ function animateForm() {
 
     if (scrollPosition > formTop + 50) {
         applicationForm.classList.add('visible');
-        // Remove the scroll listener after animating once for performance
         window.removeEventListener('scroll', animateForm);
     }
 }
@@ -35,6 +34,8 @@ const feedback = document.getElementById('formFeedback');
 if (form && feedback) {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        feedback.textContent = "⏳ Submitting...";
+        feedback.className = "loading";
 
         const formData = new FormData(form);
 
@@ -46,15 +47,18 @@ if (form && feedback) {
             });
 
             if (response.ok) {
-                feedback.textContent = "✅ Thanks for submitting your application!";
+                feedback.textContent = "✅ Thanks! Your application has been received.";
                 feedback.className = "success";
                 form.reset();
             } else {
-                feedback.textContent = "❌ There was a problem. Please try again.";
+                const data = await response.json();
+                feedback.textContent = data.errors 
+                    ? data.errors.map(err => err.message).join(", ") 
+                    : "❌ Submission failed. Please try again.";
                 feedback.className = "error";
             }
         } catch (error) {
-            feedback.textContent = "❌ Network error. Please check your connection.";
+            feedback.textContent = "❌ Network error. Please check your internet and retry.";
             feedback.className = "error";
         }
     });
@@ -78,9 +82,7 @@ document.querySelectorAll('footer a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
@@ -115,7 +117,5 @@ document.querySelectorAll('footer a[href^="#"]').forEach(anchor => {
 // ===================== Dynamic Year Update =====================
 document.addEventListener('DOMContentLoaded', () => {
     const yearEl = document.querySelector('#currentYear');
-    if (yearEl) {
-        yearEl.textContent = new Date().getFullYear();
-    }
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
