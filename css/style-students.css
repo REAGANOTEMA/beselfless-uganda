@@ -57,7 +57,11 @@ header {
 }
 
 /* ===================== Navigation ===================== */
-nav { width: 100%; background-color: #8B0000; }
+nav {
+  width: 100%;
+  background-color: #8B0000;
+  position: relative;
+}
 
 .nav-links {
   list-style: none;
@@ -73,18 +77,37 @@ nav { width: 100%; background-color: #8B0000; }
   font-weight: bold;
   transition: color 0.3s ease;
 }
-.nav-links li a:hover { text-decoration: underline; }
+.nav-links li a:hover,
+.nav-links li a.active {
+  text-decoration: underline;
+  color: #fff;
+}
 
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  gap: 4px;
+  gap: 5px;
+  position: absolute;
+  right: 20px;
+  top: 12px;
 }
 .hamburger div {
   width: 25px;
   height: 3px;
   background-color: #FFD700;
+  transition: all 0.3s ease;
+}
+
+/* Animate hamburger into X */
+.hamburger.active div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* ===================== Hero Section ===================== */
@@ -95,17 +118,7 @@ nav { width: 100%; background-color: #8B0000; }
   overflow: hidden;
 }
 
-/* Base img rule (safe) */
-.hero-section img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.8s ease;
-}
-.hero-section img:hover { transform: scale(1.03); }
-
-/* Slideshow FIX (stack + fade) */
+/* Slideshow stack + fade */
 .hero-slideshow {
   position: absolute;
   inset: 0;
@@ -171,11 +184,11 @@ nav { width: 100%; background-color: #8B0000; }
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
 
-/* Optional button effects used by JS */
+/* Button effects from JS */
 .btn-hero.fade { opacity: 0.6; }
-.btn-hero.glow { box-shadow: 0 0 18px rgba(255,165,0,0.85); }
-
-/* Shake Animation (used by JS) */
+.btn-hero.glow {
+  box-shadow: 0 0 18px rgba(255,165,0,0.85), 0 0 25px rgba(255,140,0,0.6);
+}
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   20% { transform: translateX(-5px); }
@@ -218,7 +231,7 @@ nav { width: 100%; background-color: #8B0000; }
 }
 .student {
   margin: 20px auto;
-  max-width: 1000px; /* allow wider image card */
+  max-width: 1000px;
   text-align: center;
   transform: scale(0.95);
   opacity: 0;
@@ -228,10 +241,9 @@ nav { width: 100%; background-color: #8B0000; }
   transform: scale(1);
   opacity: 1;
 }
-/* Christmas / gallery image widened */
 .student img {
   width: 100%;
-  max-width: 900px; /* wider to feature the Christmas photo */
+  max-width: 900px;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.25);
@@ -246,7 +258,6 @@ nav { width: 100%; background-color: #8B0000; }
   margin: 0 auto;
   max-width: 900px;
 }
-/* hover scale handled with class for smoother perf */
 .student.hovered { transform: scale(1.05); }
 
 /* ===================== Timeline ===================== */
@@ -277,7 +288,6 @@ nav { width: 100%; background-color: #8B0000; }
 .footer {
   background-color: #0B3D91;
   color: #fff;
-  font-family: Arial, sans-serif;
   padding: 30px 20px;
 }
 .footer-container {
@@ -331,12 +341,18 @@ nav { width: 100%; background-color: #8B0000; }
     flex-direction: column;
     background-color: #8B0000;
     width: 100%;
-    padding: 8px;
+    padding: 12px 0;
     position: absolute;
-    top: 110px;
+    top: 100%;
     right: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
   }
   .nav-links.show { display: flex; }
+  .nav-links li { padding: 10px 20px; }
+  .nav-links li a { display: block; width: 100%; }
+
   .hamburger { display: flex; }
 
   header { flex-direction: column; align-items: flex-start; }

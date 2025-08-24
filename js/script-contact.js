@@ -5,7 +5,7 @@ const navLinks = document.querySelector('.nav-links');
 if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('show');
-        hamburger.classList.toggle('active'); // Optional hamburger animation
+        hamburger.classList.toggle('active'); // optional animation
     });
 }
 
@@ -48,7 +48,7 @@ window.addEventListener('load', animateOnScroll);
 // ===================== Contact Form Validation =====================
 const contactForm = document.getElementById('contactUsForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
+    contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
         const name = document.getElementById('contactName')?.value.trim() || '';
@@ -82,9 +82,7 @@ if (contactForm) {
         this.reset();
 
         // Hide feedback after 5 seconds
-        setTimeout(() => {
-            feedback.textContent = '';
-        }, 5000);
+        setTimeout(() => { feedback.textContent = ''; }, 5000);
     });
 }
 

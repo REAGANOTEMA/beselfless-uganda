@@ -1,4 +1,4 @@
-// Ensure JS runs after DOM is ready (extra safety even if script is at the end)
+// ===================== Ensure DOM Ready =====================
 document.addEventListener('DOMContentLoaded', () => {
   // ===================== Hamburger Toggle =====================
   const hamburger = document.getElementById('hamburger');
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', animateStudents);
   animateStudents();
 
-  // Hover effect via class for smoother perf
+  // Hover effect for smoother perf
   students.forEach(st => {
     st.addEventListener('mouseenter', () => st.classList.add('hovered'));
     st.addEventListener('mouseleave', () => st.classList.remove('hovered'));
@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const slides = document.querySelectorAll('.hero-slideshow .hero-slide');
   if (slides.length) {
     let current = 0;
-    // ensure exactly one is active at start
     slides.forEach((s, i) => s.classList.toggle('active', i === 0));
     setInterval(() => {
       slides[current].classList.remove('active');
@@ -71,21 +70,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   }
 
-  // ===================== Hero Apply Button Effects (every 2s fade/shake, 3s glow) =====================
+  // ===================== Hero Apply Button Effects =====================
   const heroBtn = document.getElementById('hero-btn');
   if (heroBtn) {
+    // Fade effect every 2s
     setInterval(() => {
       heroBtn.classList.toggle('fade');
     }, 2000);
 
+    // Shake effect every 4s
     setInterval(() => {
       heroBtn.classList.add('shake');
       setTimeout(() => heroBtn.classList.remove('shake'), 600);
-    }, 2000);
+    }, 4000);
 
+    // Glow effect every 5s
     setInterval(() => {
       heroBtn.classList.add('glow');
-      setTimeout(() => heroBtn.classList.remove('glow'), 600);
-    }, 3000);
+      setTimeout(() => heroBtn.classList.remove('glow'), 800);
+    }, 5000);
   }
 });

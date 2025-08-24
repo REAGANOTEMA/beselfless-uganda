@@ -7,6 +7,7 @@ body {
     background-size: cover;
     color: #333;
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
 /* ===================== Header ===================== */
@@ -42,13 +43,11 @@ header {
 .top-ribbon .logo img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.5s ease;
 }
 
-.top-ribbon .logo img:hover {
-    transform: scale(1.05);
-}
+.top-ribbon .logo img:hover { transform: scale(1.05); }
 
 .top-ribbon .org-info h1,
 .top-ribbon .org-info p {
@@ -70,6 +69,7 @@ header {
 nav {
     width: 100%;
     background-color: #8B0000;
+    position: relative;
 }
 
 .nav-links {
@@ -88,13 +88,17 @@ nav {
     transition: color 0.3s ease;
 }
 
-.nav-links li a:hover { text-decoration: underline; }
+.nav-links li a:hover,
+.nav-links li a.active { text-decoration: underline; }
 
 .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
 }
 
 .hamburger div {
@@ -111,11 +115,31 @@ nav {
     overflow: hidden;
 }
 
-.hero-section .hero-image {
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slider .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero-slider .slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.hero-slider .slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 }
 
 .hero-overlay {
@@ -124,10 +148,11 @@ nav {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: #8B0000;
-    background: rgba(255,255,255,0.7);
+    color: #fff;
+    background: rgba(0,0,0,0.55);
     padding: 20px 40px;
     border-radius: 10px;
+    z-index: 2;
     animation: fadeSlide 6s ease-in-out infinite alternate;
 }
 
@@ -145,8 +170,8 @@ nav {
 .hero-overlay a {
     display: inline-block;
     padding: 12px 30px;
-    background-color: #8B0000;
-    color: #FFD700;
+    background-color: #FFD700;
+    color: #8B0000;
     font-weight: bold;
     border-radius: 8px;
     text-decoration: none;
@@ -155,18 +180,18 @@ nav {
 }
 
 .hero-overlay a:hover {
-    background-color: #FFD700;
-    color: #8B0000;
+    background-color: #8B0000;
+    color: #FFD700;
     transform: scale(1.1);
 }
 
 @keyframes heroColorRotate {
-    0% { color: #8B0000; }
-    20% { color: #FFD700; }
+    0% { color: #FFD700; }
+    20% { color: #FF4500; }
     40% { color: #0B3D91; }
-    60% { color: #FF4500; }
-    80% { color: #228B22; }
-    100% { color: #8B0000; }
+    60% { color: #228B22; }
+    80% { color: #8B0000; }
+    100% { color: #FFD700; }
 }
 
 @keyframes fadeSlide {
@@ -175,7 +200,7 @@ nav {
     100% { opacity: 0.7; transform: translate(-50%, -50%) translateY(0px); }
 }
 
-/* ===================== Events Gallery / Top Images ===================== */
+/* ===================== Top Images / Events ===================== */
 .top-images {
     max-width: 1200px;
     margin: 50px auto;
@@ -204,8 +229,6 @@ nav {
     text-align: center;
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     transition: transform 0.5s ease, opacity 0.8s ease, box-shadow 0.5s ease;
-    opacity: 1;
-    transform: translateY(0);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -213,7 +236,7 @@ nav {
 
 .event-card img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
     border-radius: 12px;
     margin-bottom: 15px;
@@ -282,10 +305,10 @@ nav {
 .footer-flag .yellow { background-color: #FFD700; }
 .footer-flag .red { background-color: #FF0000; }
 
-/* ===================== Mobile View ===================== */
+/* ===================== Responsive ===================== */
 @media screen and (max-width:1024px) {
     .top-images-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
-    .event-card img { height: 180px; }
+    .event-card img { height: 200px; }
 }
 
 @media screen and (max-width:768px) {
@@ -294,10 +317,16 @@ nav {
     .hero-overlay h1 { font-size: 2rem; }
     .hero-overlay p { font-size: 1.2rem; }
     .hero-overlay a { padding: 10px 25px; font-size: 1rem; }
-    .top-images { grid-template-columns: 1fr; margin: 20px auto; }
+    .top-images { margin: 20px auto; }
     .footer-container { flex-direction: column; gap: 20px; }
     .nav-links { flex-direction: column; width: 100%; top: 120px; padding: 10px; background-color: #8B0000; display: none; position: absolute; }
     .nav-links.show { display: flex; }
     .nav-links li a { font-size: 1rem; padding: 10px 0; }
     .hamburger { display: flex; }
+}
+
+@media screen and (max-width:480px) {
+    .hero-overlay h1 { font-size: 1.6rem; }
+    .hero-overlay p { font-size: 1rem; }
+    .event-card img { height: 160px; }
 }

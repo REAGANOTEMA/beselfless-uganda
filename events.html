@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Events - Be Selfless Uganda</title>
-<link rel="stylesheet" href="css/style-events.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events - Be Selfless Uganda</title>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="css/style-events.css" />
 </head>
 <body>
 
+<!-- ===================== Header ===================== -->
 <header>
   <div class="top-ribbon">
     <div class="logo">
@@ -20,14 +22,14 @@
   </div>
 
   <nav>
-   <ul class="nav-links">
+    <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="history.html">History</a></li>
       <li><a href="techcenters.html">Tech Centers</a></li>
       <li><a href="students.html">Students</a></li>
       <li><a href="Programs.html">Programs</a></li>
       <li><a href="Apply.html">Start Your Journey</a></li>
-      <li><a href="events.html">Events</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="hamburger" id="hamburger">
@@ -38,105 +40,74 @@
   </nav>
 </header>
 
+<!-- ===================== Main ===================== -->
 <main>
-  <!-- HERO -->
+
+  <!-- HERO SLIDER -->
   <section class="hero-section">
-    <img class="hero-image" src="images/project3.jpg" alt="Students and mentors celebrating learning and opportunity" />
+    <div class="hero-slider">
+      <div class="slide active">
+        <img src="images/project3.jpg" alt="Students and mentors celebrating learning and opportunity" />
+      </div>
+      <div class="slide">
+        <img src="images/cakes-cutting.jpg" alt="Christmas Celebration Gathering" />
+      </div>
+    </div>
+
     <div class="hero-overlay">
       <h1 class="hero-title">Your future starts here</h1>
       <p class="hero-subtitle">Apply for scholarships today</p>
       <div class="hero-buttons">
         <a href="application.html">Apply for Scholarship</a>
-        <a href="https://apply.byupathway.edu/portal/user-profile/login?ReturnUrl=https%3a%2f%2fapply.byupathway.edu%2fportal%2fbyu-application-portal%2fwelcome-page"  target="_blank">Apply for BYU</a>
+        <a href="https://apply.byupathway.edu/portal/user-profile/login" target="_blank">Apply for BYU</a>
       </div>
     </div>
   </section>
 
-  <!-- Top Images Section -->
+  <!-- TOP IMAGES SECTION -->
   <section class="top-images">
-  <h2>Highlights from Our Programs</h2>
-  <div class="top-images-grid">
-    <!-- Existing 4 cards -->
-    <article class="event-card">
-      <img src="images/meetingroom1.jpg" alt="Christmas Celebration Gathering" />
-      <p>
-        Students, volunteers, and community members joined for music, storytelling, and festive meals. Gift hampers, mentorship chats, and meaningful conversations supported families, strengthened community bonds, and created joyful memories that will inspire everyone for many years to come.
-      </p>
-    </article>
-
-    <article class="event-card">
-      <img src="images/mukono-techcenter.png" alt="Mukono Tech Center Workshop" />
-      <p>
-        Learners practiced coding, digital design, and productivity tools with expert guidance. Mentors led project building, presentations, and problem-solving sessions, opening pathways to technology careers while fostering collaboration, innovation, and confidence among the students for future success.
-      </p>
-    </article>
-
-    <article class="event-card">
-      <img src="images/charity.jpg" alt="Community Charity Drive" />
-      <p>
-        Youth volunteers distributed food packs, school supplies, and hygiene kits to families in need. House visits, mentoring, and personal support connected vulnerable households to opportunities, fostering dignity, hope, resilience, and stronger participation within their local communities across the region.
-      </p>
-    </article>
-
-    <article class="event-card">
-      <img src="images/students1.jpg" alt="Skills Development Fair" />
-      <p>
-        The Skills Fair showcased student projects, artwork, and digital demonstrations. Career booths, soft-skills clinics, and peer feedback encouraged teamwork, resilience, and goal-setting, empowering participants with essential skills, confidence, and inspiration for academic and professional growth in the future.
-      </p>
-    </article>
-
-    <!-- NEW CARDS -->
-    <article class="event-card">
-      <img src="images/masak-students-inclass1.jpg" alt="Innovation Lab Workshop" />
-      <p>
-        Students explored creative problem-solving and prototyping in our Innovation Lab. Mentors guided experiments, teamwork exercises, and coding projects, helping participants develop critical thinking, collaboration skills, and confidence in designing real-world solutions that can impact their communities positively.
-      </p>
-    </article>
-
-    <article class="event-card">
-      <img src="images/students2.jpg" alt="Community Cleanup Initiative" />
-      <p>
-        Volunteers participated in community cleanup activities, collecting waste, planting trees, and promoting environmental awareness. This initiative inspired civic responsibility, teamwork, and sustainable practices, while fostering pride and a sense of ownership for a cleaner, healthier, and greener community environment.
-      </p>
-    </article>
-
-    <article class="event-card">
-      <img src="images/mukono-tech-computers$students.jpg" alt="Student Mentorship Session" />
-      <p>
-        Mentorship sessions connected students with experienced professionals for guidance, skill-building, and goal-setting. Discussions covered academic strategies, career pathways, and personal growth, empowering youth to make informed decisions, gain confidence, and pursue opportunities for long-term success and community impact.
-      </p>
-    </article>
-    <article class="event-card">
-    <img src="images/techcenter-computer.jpg" alt="Coding Workshop" />
-    <p>
-        Students explored advanced coding challenges and collaborative software projects. Mentors provided guidance, enhancing problem-solving skills and inspiring interest in tech careers.
-    </p>
+    <h2>Highlights from Our Programs</h2>
+    <div class="top-images-grid">
+      <article class="event-card">
+        <img src="images/meetingroom1.jpg" alt="Christmas Celebration Gathering" />
+        <p>Students, volunteers, and community members joined for music, storytelling, and festive meals...</p>
+      </article>
+      <article class="event-card">
+        <img src="images/mukono-techcenter.png" alt="Mukono Tech Center Workshop" />
+        <p>Learners practiced coding, digital design, and productivity tools with expert guidance...</p>
+      </article>
+      <article class="event-card">
+        <img src="images/charity.jpg" alt="Community Charity Drive" />
+        <p>Youth volunteers distributed food packs, school supplies, and hygiene kits to families in need...</p>
+      </article>
+      <article class="event-card">
+        <img src="images/students1.jpg" alt="Skills Development Fair" />
+        <p>The Skills Fair showcased student projects, artwork, and digital demonstrations...</p>
+      </article>
+      <article class="event-card">
+        <img src="images/masak-students-inclass1.jpg" alt="Innovation Lab Workshop" />
+        <p>Students explored creative problem-solving and prototyping in our Innovation Lab...</p>
+      </article>
+      <article class="event-card">
+    <img src="images/maraka-stud.jpg" alt="Innovation Lab Workshop" />
+<p>Celebrating the graduation of our Pathway Connect students as they prepare to embark on their university journey, a proud moment of achievement and new beginnings!</p>
 </article>
+  </section>
 
-<article class="event-card">
-    <img src="images/institute1.jpg" alt="Community Cleanup" />
-    <p>
-        Volunteers participated in a neighborhood cleanup, planting trees and organizing recycling drives. These efforts built community pride, environmental awareness, and teamwork among participants.
-    </p>
-</article>
-  </div>
-</section>
-
-
-  <!-- Subscribe Section -->
+  <!-- SUBSCRIBE SECTION -->
   <section class="subscribe-news">
     <h2>Subscribe to Our News</h2>
-    <p>
-      Receive event highlights, program updates, and scholarship alerts directly in your inbox. Stay informed, get involved, and help us grow opportunities for young people while remaining connected to our latest initiatives.
-    </p>
+    <p>Receive event highlights, program updates, and scholarship alerts directly in your inbox...</p>
     <form action="#" method="POST" class="subscribe-form">
       <label for="email" class="sr-only">Email</label>
       <input id="email" name="email" type="email" placeholder="Enter your email" required />
       <button type="submit">Subscribe</button>
     </form>
   </section>
+
 </main>
 
+<!-- ===================== Footer ===================== -->
 <footer class="footer">
   <div class="footer-flag">
     <span class="black"></span>
@@ -148,9 +119,7 @@
     <div class="footer-section about">
       <h3>Be Selfless Uganda</h3>
       <p class="footer-text">"Nurturing Resilient Minds"</p>
-      <p class="footer-text">
-        We empower students through education, mentorship, and tech-centered initiatives across Uganda. Join us to make a meaningful impact.
-      </p>
+      <p class="footer-text">We empower students through education, mentorship, and tech-centered initiatives...</p>
     </div>
 
     <div class="footer-section footer-links">
@@ -192,9 +161,7 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
-<script>
-  document.getElementById('currentYear').textContent = new Date().getFullYear();
-</script>
+<!-- ===================== Scripts ===================== -->
+<script src="js/script-events.js"></script>
 </body>
 </html>

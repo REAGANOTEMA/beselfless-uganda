@@ -5,12 +5,32 @@ const navLinks = document.querySelector('.nav-links');
 if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('show');
-        hamburger.classList.toggle('active'); // optional animation
+        hamburger.classList.toggle('active'); // optional hamburger animation
     });
 }
 
+// ===================== Hero Slider =====================
+const slides = document.querySelectorAll('.hero-slider .slide');
+let currentSlide = 0;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+    });
+}
+
+// Start slider if slides exist
+if (slides.length > 0) {
+    showSlide(currentSlide);
+    setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }, 10000); // 10 seconds
+}
+
 // ===================== Animate Event Images on Scroll =====================
-const events = document.querySelectorAll('.event');
+const events = document.querySelectorAll('.event-card');
 
 const animateEvents = () => {
     const triggerBottom = window.innerHeight * 0.85;
@@ -88,7 +108,10 @@ if (footerBottom) {
         cursor: pointer;
         font-weight: bold;
         color: #8B0000;
+        transition: all 0.3s ease;
     `;
+    backToTop.addEventListener('mouseenter', () => backToTop.style.transform = "scale(1.1)");
+    backToTop.addEventListener('mouseleave', () => backToTop.style.transform = "scale(1)");
     backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
