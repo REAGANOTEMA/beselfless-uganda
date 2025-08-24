@@ -40,14 +40,18 @@
 </header>
 
 <main>
- <form class="application-form" id="applicationForm" action="https://formspree.io/f/xkgzglez" method="POST" enctype="multipart/form-data">
+ <form class="application-form" 
+       id="applicationForm" 
+       action="https://formspree.io/f/xkgzglez" 
+       method="POST" 
+       enctype="multipart/form-data">
   <h1>Application Form</h1>
 
   <label for="fullname">Full Name</label>
   <input type="text" id="fullname" name="fullname" required>
 
   <label for="email">Email</label>
-  <input type="email" id="email" name="email" required>
+  <input type="email" id="email" name="_replyto" required>
 
   <label for="phone">Phone Number</label>
   <input type="tel" id="phone" name="phone" required>
@@ -66,7 +70,7 @@
   <label for="message">Why do you want to join?</label>
   <textarea id="message" name="message" rows="5" required></textarea>
 
-  <!-- New File Upload Field -->
+  <!-- File Upload -->
   <label for="document">Upload Your Document (PDF or Word)</label>
   <input type="file" id="document" name="document" accept=".pdf,.doc,.docx" required>
 
@@ -74,7 +78,6 @@
 
   <div id="formFeedback"></div>
 </form>
-
 </main>
 
 <footer class="footer">
@@ -129,7 +132,6 @@
     <p class="footer-text">Designed to empower, educate, and inspire the next generation of leaders in Uganda.</p>
   </div>
 </footer>
-
 
 <script src="js/script-application.js"></script>
 </body>
