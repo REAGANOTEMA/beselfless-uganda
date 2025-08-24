@@ -138,8 +138,8 @@ nav {
 
 /* Make images fade-in along with text */
 .event-img {
-    width: 1000%;
     max-width: 500px;
+    width: 100%;
     display: block;
     margin: 20px auto;
     border-radius: 12px;
@@ -153,7 +153,6 @@ nav {
     opacity: 1;
     transform: translateY(0);
 }
-
 
 /* ===================== Footer ===================== */
 .footer {
@@ -235,23 +234,35 @@ nav {
 
 /* ===================== Responsive ===================== */
 @media screen and (max-width:768px){
+    /* Hamburger & Navigation */
     .nav-links {
         display: none;
         flex-direction: column;
         background-color: #8B0000;
         width: 100%;
-        padding: 10px;
+        padding: 10px 0;
         position: absolute;
-        top: 120px;
+        top: 100px;
         right: 0;
+        z-index: 99;
     }
     .nav-links.show { display: flex; }
     .hamburger { display: flex; }
 
-    header { flex-direction: column; align-items: flex-start; }
-    header .org-info { text-align: left; margin-top: 10px; }
+    /* Header & Ribbon */
+    header { flex-direction: column; align-items: center; }
     .top-ribbon { flex-direction: column; gap: 10px; }
+    .top-ribbon .org-info h1 { font-size: 1.4rem; text-align: center; }
+    .top-ribbon .org-info p { font-size: 1rem; text-align: center; }
 
-    .event.left, .event.right { text-align: left; }
-    .event-img { max-width: 100%; }
+    /* Timeline */
+    .timeline { padding: 20px; margin: 30px 10px; }
+    .timeline h1 { font-size: 1.6rem; margin-bottom: 40px; }
+    .event.left, .event.right { text-align: center; padding: 15px 0; }
+    .event-img { max-width: 100%; margin: 10px auto; }
+
+    /* Footer */
+    .footer-container { flex-direction: column; align-items: center; text-align: center; }
+    .footer-section { min-width: 100%; margin-bottom: 20px; }
+    .footer-contacts { justify-content: center; }
 }

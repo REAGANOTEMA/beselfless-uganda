@@ -8,6 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
       navLinks.classList.toggle('show');
       hamburger.classList.toggle('active');
     });
+
+    // Close menu when clicking a nav link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+        hamburger.classList.remove('active');
+      });
+    });
   }
 
   // Timeline animation
