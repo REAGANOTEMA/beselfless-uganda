@@ -2,9 +2,20 @@
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.querySelector('.nav-links');
 
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-});
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });
+
+    // Close menu when a link is clicked (better UX on mobile)
+    document.querySelectorAll('.nav-links li a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks.classList.contains('show')) {
+                navLinks.classList.remove('show');
+            }
+        });
+    });
+}
 
 // ===================== Animate Tech Center Cards on Scroll =====================
 const centers = document.querySelectorAll('.center');
@@ -63,6 +74,15 @@ if (footerBottom) {
     backToTop.style.cursor = "pointer";
     backToTop.style.fontWeight = "bold";
     backToTop.style.color = "#8B0000";
+    backToTop.style.boxShadow = "0 2px 8px rgba(0,0,0,0.2)";
+    backToTop.style.transition = "background-color 0.3s ease";
+
+    backToTop.addEventListener('mouseenter', () => {
+        backToTop.style.backgroundColor = "#e6c200";
+    });
+    backToTop.addEventListener('mouseleave', () => {
+        backToTop.style.backgroundColor = "#FFD700";
+    });
 
     backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -77,21 +97,3 @@ const copyrightEl = document.querySelector('.footer-bottom p:first-child');
 if (copyrightEl) {
     copyrightEl.innerHTML = `&copy; ${copyrightYear} Be Selfless Uganda. All rights reserved.`;
 }
-
-// ===================== Responsive Enhancements =====================
-// Optional: Close menu on link click (mobile)
-document.querySelectorAll('.nav-links li a').forEach(link => {
-    link.addEventListener('click', () => {
-        if (navLinks.classList.contains('show')) {
-            navLinks.classList.remove('show');
-        }
-    });
-});
-
-// ===================== Fade-in Animation Notes =====================
-// Make sure to add the following CSS for proper fade-in animations:
-//
-// .center { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
-// .center.visible { opacity: 1; transform: translateY(0); }
-//
-// This ensures smooth animation for tech center cards on scroll, including mobile views.

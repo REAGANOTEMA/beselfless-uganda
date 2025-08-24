@@ -13,12 +13,12 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #FFD700; /* Yellow ribbon */
+  background-color: #FFD700;
   padding: 10px 20px;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 4px solid #8B0000; /* Red line under nav */
+  border-bottom: 4px solid #8B0000;
 }
 
 .top-ribbon {
@@ -103,6 +103,7 @@ nav {
   width: 25px;
   height: 3px;
   background-color: #FFD700;
+  transition: all 0.3s ease;
 }
 
 /* ===================== Responsive Navigation ===================== */
@@ -185,10 +186,12 @@ form.application-form input[type="file"]::file-selector-button {
   margin-right: 10px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  animation: pulseAllButtons 2s infinite, floatButton 3s infinite ease-in-out;
 }
 
 form.application-form input[type="file"]::file-selector-button:hover {
+  transform: scale(1.05);
   background-color: #a50000;
 }
 
@@ -201,21 +204,51 @@ form.application-form button {
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  animation: pulseAllButtons 2s infinite, floatButton 3s infinite ease-in-out;
 }
 
 form.application-form button:hover { 
+  transform: scale(1.05);
   background-color: #a50000; 
 }
 
-/* Form feedback */
-#formFeedback {
-  text-align: center;
+/* ===================== Go Back Homepage Button ===================== */
+.go-back-btn {
+  display: inline-block;
+  margin: 20px auto 40px;
+  padding: 12px 25px;
   font-weight: bold;
-  margin-top: 15px;
+  font-size: 1rem;
+  border-radius: 6px;
+  background-color: #FFD700;
+  color: #8B0000;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  animation: pulseAllButtons 2s infinite, floatButton 3s infinite ease-in-out;
 }
-#formFeedback.success { color: green; }
-#formFeedback.error { color: red; }
+
+.go-back-btn:hover {
+  transform: scale(1.05);
+  background-color: #FFC300;
+}
+
+/* ===================== General Buttons Pulse ===================== */
+@keyframes pulseAllButtons {
+  0%, 100% { box-shadow: 0 0 0 rgba(255, 255, 0, 0); }
+  50% { box-shadow: 0 0 20px rgba(255, 255, 0, 0.9); }
+}
+
+/* ===================== Smooth slow left-right movement ===================== */
+@keyframes floatButton {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(4px); }
+  50% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
 
 /* ===================== Footer ===================== */
 /* Footer Flag Stripe */
@@ -235,7 +268,7 @@ form.application-form button:hover {
 
 /* Footer Styles */
 .footer {
-  background-color: #0B3D91; /* Dark Blue */
+  background-color: #0B3D91;
   color: #fff;
   font-family: Arial, sans-serif;
   padding: 40px 20px;
@@ -333,12 +366,13 @@ form.application-form button:hover {
     font-size: 0.9rem;
     padding: 10px;
   }
-  form.application-form button {
+  form.application-form button, .go-back-btn {
     width: 100%;
     padding: 12px;
   }
 }
-/* Default hidden nav on mobile */
+
+/* ===================== Hamburger Mobile Styles ===================== */
 .nav-links {
   display: none;
   flex-direction: column;

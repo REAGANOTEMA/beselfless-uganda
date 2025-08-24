@@ -53,27 +53,28 @@ body {
 
 /* ===================== Red Ribbon CTA ===================== */
 .red-ribbon-cta {
-    background-color: #8B0000;
     text-align: center;
-    padding: 15px 0;
-    font-size: 1.2rem;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-    margin-top: 20px; /* Space from top header */
+    margin: 20px 0;
 }
 
-.red-ribbon-cta a {
+.cta-button {
+    display: inline-block;
+    background-color: #8B0000;
     color: #FFD700;
     font-weight: bold;
     text-decoration: none;
     padding: 10px 20px;
-    border-radius: 5px;
-    display: inline-block;
-    transition: transform 0.3s ease, text-decoration 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    box-shadow: 0 0 8px rgba(255,0,0,0.5);
+    cursor: pointer;
 }
 
-.red-ribbon-cta a:hover {
+.cta-button:hover {
+    background-color: #a50000;
     transform: scale(1.05);
-    text-decoration: underline;
+    box-shadow: 0 0 15px #FF0000, 0 0 30px #FFD700;
 }
 
 /* Glow and Shake animations */
@@ -87,9 +88,9 @@ body {
 
 @keyframes shake {
     0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
+    25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
+    75% { transform: translateX(-4px); }
     100% { transform: translateX(0); }
 }
 
@@ -153,13 +154,13 @@ body {
 
 /* ===================== Footer Flag Stripe ===================== */
 .footer-flag {
-  display: flex;
-  height: 8px;
-  width: 100%;
+    display: flex;
+    height: 8px;
+    width: 100%;
 }
 
 .footer-flag span {
-  flex: 1;
+    flex: 1;
 }
 
 .footer-flag .black { background-color: #000; }
@@ -168,89 +169,90 @@ body {
 
 /* ===================== Footer Styles ===================== */
 .footer {
-  background-color: #0B3D91;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  padding: 40px 20px;
+    background-color: #0B3D91;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    padding: 40px 20px;
 }
 
 .footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 .footer-section {
-  flex: 1 1 220px;
-  min-width: 220px;
+    flex: 1 1 220px;
+    min-width: 220px;
 }
 
 .footer-section h3,
 .footer-section h4 {
-  color: #FFD700;
-  margin-bottom: 15px;
-  font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 15px;
+    font-weight: bold;
 }
 
 .footer-text {
-  color: #eee;
-  line-height: 1.6;
-  margin-bottom: 10px;
+    color: #eee;
+    line-height: 1.6;
+    margin-bottom: 10px;
 }
 
 .footer-links ul,
 .footer-policies ul {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 .footer-links li,
 .footer-policies li {
-  margin-bottom: 8px;
+    margin-bottom: 8px;
 }
 
 .footer-links li a,
 .footer-policies li a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s ease;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .footer-links li a:hover,
 .footer-policies li a:hover {
-  color: #FFD700;
+    color: #FFD700;
 }
 
 .footer-contacts {
-  display: flex;
-  gap: 15px;
-  margin-top: 10px;
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
 }
 
 .footer-contacts img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-  transition: transform 0.3s ease;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .footer-contacts img:hover {
-  transform: scale(1.2);
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(255,255,255,0.5);
 }
 
 .footer-bottom {
-  text-align: center;
-  padding: 20px 0 0;
-  font-size: 0.9rem;
-  color: #ccc;
+    text-align: center;
+    padding: 20px 0 0;
+    font-size: 0.9rem;
+    color: #ccc;
 }
 
 .footer-bottom p {
-  margin: 5px 0;
+    margin: 5px 0;
 }
 
 /* ===================== Responsive Styles ===================== */

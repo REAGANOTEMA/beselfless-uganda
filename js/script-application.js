@@ -119,3 +119,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearEl = document.querySelector('#currentYear');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
+
+// ===================== Go Back Homepage Button Animation =====================
+(function() {
+    const goBackBtn = document.querySelector('.go-back-btn');
+    if (!goBackBtn) return;
+
+    // Pulsing light effect every 2 seconds
+    setInterval(() => {
+        goBackBtn.style.boxShadow = "0 0 15px #FFD700";
+        setTimeout(() => goBackBtn.style.boxShadow = "0 0 0px #FFD700", 1000);
+    }, 2000);
+})();

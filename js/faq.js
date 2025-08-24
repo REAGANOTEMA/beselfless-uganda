@@ -33,7 +33,7 @@ footerIcons.forEach(icon => {
     });
 });
 
-// ===================== Smooth Scroll =====================
+// ===================== Smooth Scroll for Footer Anchors =====================
 document.querySelectorAll('footer a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -57,6 +57,17 @@ if (footerBottom) {
     backToTop.style.cursor = "pointer";
     backToTop.style.fontWeight = "bold";
     backToTop.style.color = "#8B0000";
+    backToTop.style.transition = "all 0.3s ease";
+
+    backToTop.addEventListener('mouseenter', () => {
+        backToTop.style.transform = "scale(1.1)";
+        backToTop.style.boxShadow = "0 4px 12px rgba(255, 215, 0, 0.7)";
+    });
+
+    backToTop.addEventListener('mouseleave', () => {
+        backToTop.style.transform = "scale(1)";
+        backToTop.style.boxShadow = "none";
+    });
 
     backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -92,3 +103,8 @@ if (ctaButton) {
         }, 500); // Shake lasts 0.5 seconds
     }, 5000);
 }
+
+// ===================== Optional: Ensure FAQ answers collapse smoothly =====================
+document.querySelectorAll('.faq-answer').forEach(answer => {
+    answer.style.transition = "all 0.3s ease";
+});

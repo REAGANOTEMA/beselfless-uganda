@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===================== Hamburger Toggle =====================
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.querySelector('.nav-links');
-
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('show');
@@ -11,30 +10,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-// Hero Slider
+  // ===================== Hero Slider =====================
 const slides = document.querySelectorAll('.hero-slider .slide');
-let currentSlide = 0;
+  const dotsContainer = document.querySelector('.slider-dots');
+  let currentSlide = 0;
 
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === index);
+  function showSlide(index) {
+    slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+    const dots = document.querySelectorAll('.slider-dots .dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+  }
+
+  // Create dots dynamically
+  if (dotsContainer) {
+    slides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        currentSlide = i;
+        showSlide(currentSlide);
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  // Show first slide and auto-slide
+  if (slides.length > 0) {
+    showSlide(currentSlide);
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }, 5000);
+  }
+
+  // ===================== Apply Buttons =====================
+  const applyButtons = document.querySelectorAll('.apply-btn, .nav-apply-btn');
+  setInterval(() => {
+    applyButtons.forEach(btn => {
+      btn.classList.add('shake-btn');
+      setTimeout(() => btn.classList.remove('shake-btn'), 500);
+    });
+  }, 4000);
+
+  applyButtons.forEach(btn => {
+    btn.addEventListener('mouseenter', () => btn.style.transform = 'scale(1.05)');
+    btn.addEventListener('mouseleave', () => btn.style.transform = 'scale(1)');
   });
-}
-
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-}
-
-if (slides.length > 0) {
-  showSlide(currentSlide);             // show first slide
-  setInterval(nextSlide, 3000);        // auto-slide every 3s
-}
 
   // ===================== Prophet & Student Animations =====================
   const prophetImg = document.querySelector('.prophet-img');
   const studentImg = document.querySelector('.student-img');
-
   if (prophetImg) {
     setInterval(() => {
       prophetImg.style.transform = 'scale(1.08)';
@@ -42,7 +68,6 @@ if (slides.length > 0) {
       setTimeout(() => prophetImg.style.transform = 'scale(1)', 800);
     }, 3000);
   }
-
   if (studentImg) {
     studentImg.addEventListener('mouseenter', () => {
       studentImg.style.transform = 'scale(1.05)';
@@ -67,7 +92,7 @@ if (slides.length > 0) {
     });
   });
 
-  // ===================== Back to Top =====================
+  // ===================== Back to Top Button =====================
   const footerBottom = document.querySelector('.footer-bottom');
   if (footerBottom) {
     const backToTop = document.createElement('button');
@@ -92,39 +117,4 @@ if (slides.length > 0) {
   const yearEl = document.getElementById('currentYear');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ===================== Apply Now Button =====================
-  const nav = document.querySelector('.nav-links');
-  if (nav) {
-    const applyItem = document.createElement('li');
-    applyItem.innerHTML = `<a href="https://apply.byupathway.edu/portal/user-profile/login" class="nav-apply-btn">Apply Now</a>`;
-    nav.appendChild(applyItem);
-
-    const btn = document.querySelector('.nav-apply-btn');
-    setInterval(() => {
-      btn.classList.add('shake');
-      setTimeout(() => btn.classList.remove('shake'), 500);
-    }, 2000);
-  }
-
 });
-// Add dots dynamically
-const dotsContainer = document.querySelector('.slider-dots');
-if (dotsContainer) {
-  slides.forEach((_, i) => {
-    const dot = document.createElement('span');
-    dot.classList.add('dot');
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => {
-      currentSlide = i;
-      showSlide(currentSlide);
-    });
-    dotsContainer.appendChild(dot);
-  });
-}
-
-// Update dots on slide change
-function showSlide(index) {
-  slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-  const dots = document.querySelectorAll('.slider-dots .dot');
-  dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-}
