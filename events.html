@@ -4,12 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Events - Be Selfless Uganda</title>
+  
+  <!-- Font Awesome (for icons, styled white in CSS) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <!-- External CSS -->
   <link rel="stylesheet" href="css/style-events.css" />
 </head>
 <body>
 
-<!-- ===================== Header ===================== -->
+<!-- ===================== HEADER ===================== -->
 <header>
   <div class="top-ribbon">
     <div class="logo">
@@ -22,15 +26,15 @@
   </div>
 
   <nav>
-   <ul class="nav-links">
+    <ul class="nav-links">
       <li><a href="Programs.html">Our Programs</a></li>
       <li><a href="FAQ.html">FAQ</a></li>
       <li><a href="history.html">History</a></li>
       <li><a href="techcenters.html">Tech Centers</a></li>
       <li><a href="Apply.html">Start Your Journey</a></li>
-      <li><a href="events.html">Events</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
       <li><a href="contact.html">Contact</a></li>
-       <li><a href="policy.html">Our Terms & Policies</a></li>
+      <li><a href="policy.html">Terms & Policies</a></li>
     </ul>
     <div class="hamburger" id="hamburger">
       <div></div>
@@ -40,7 +44,7 @@
   </nav>
 </header>
 
-<!-- ===================== Main ===================== -->
+<!-- ===================== MAIN ===================== -->
 <main>
 
   <!-- HERO SLIDER -->
@@ -50,7 +54,7 @@
         <img src="images/project3.jpg" alt="Students and mentors celebrating learning and opportunity" />
       </div>
       <div class="slide">
-        <img src="images/cakes-cutting.jpg" alt="Christmas Celebration Gathering" />
+        <img src="images/hero6.JPG" alt="Christmas Celebration Gathering" />
       </div>
     </div>
 
@@ -89,9 +93,10 @@
         <p>Students explored creative problem-solving and prototyping in our Innovation Lab...</p>
       </article>
       <article class="event-card">
-    <img src="images/maraka-stud.jpg" alt="Innovation Lab Workshop" />
-<p>Celebrating the graduation of our Pathway Connect students as they prepare to embark on their university journey, a proud moment of achievement and new beginnings!</p>
-</article>
+        <img src="images/maraka-stud.jpg" alt="Graduation Celebration" />
+        <p>Celebrating the graduation of our Pathway Connect students as they prepare to embark on their university journey!</p>
+      </article>
+    </div>
   </section>
 
   <!-- SUBSCRIBE SECTION -->
@@ -107,7 +112,7 @@
 
 </main>
 
-<!-- ===================== Footer ===================== -->
+<!-- ===================== FOOTER ===================== -->
 <footer class="footer">
   <div class="footer-flag">
     <span class="black"></span>
@@ -119,7 +124,7 @@
     <div class="footer-section about">
       <h3>BeSelfless (U)</h3>
       <p class="footer-text">"Nurturing Resilient Minds"</p>
-      <p class="footer-text">We empower students through education, mentorship, and tech-centered initiatives...</p>
+      <p class="footer-text">Empowering students through education, mentorship, and tech learning initiatives across Uganda.</p>
     </div>
 
     <div class="footer-section footer-links">
@@ -141,16 +146,24 @@
         <li><a href="policy.html">Privacy Policy</a></li>
         <li><a href="policy.html">Terms & Conditions</a></li>
         <li><a href="application.html">Scholarship Application</a></li>
-        <li><a href="Apply.html">Programs & Scholarships</a></li>
+        <li><a href="apply.html">Programs & Scholarships</a></li>
       </ul>
     </div>
 
     <div class="footer-section footer-contact">
-      <h4>Connect With Us</h4>
+      <h4>Contact Us</h4>
       <div class="footer-contacts">
-        <a href="mailto:beselflessuganda@gmail.com" title="Email"><img src="images/email.png" alt="Email" /></a>
-        <a href="tel:+256200926095" title="Phone"><img src="images/mobile.webp" alt="Phone" /></a>
-        <a href="https://wa.me/256752246215" target="_blank" title="WhatsApp"><img src="images/whatsapp.png" alt="WhatsApp" /></a>
+        <a href="mailto:beselflessuganda@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+256200926095" title="Phone"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/256752246215" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-section footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/19YYJZrtJh/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://youtu.be/YgD0dxCKyFU?feature=shared" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
   </div>
@@ -161,7 +174,11 @@
   </div>
 </footer>
 
-<!-- ===================== Scripts ===================== -->
+<!-- ===================== SCRIPTS ===================== -->
 <script src="js/script-events.js"></script>
+<script>
+  // Auto-update year
+  document.getElementById("currentYear").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>

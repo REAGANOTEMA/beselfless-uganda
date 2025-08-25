@@ -30,11 +30,11 @@ header {
 }
 
 .top-ribbon .logo {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid #a90505;
+    border: 3px solid #a90505;
 }
 
 .top-ribbon .logo img {
@@ -54,6 +54,7 @@ header {
 nav {
     width: 100%;
     background-color: #8B0000;
+    position: relative;
 }
 
 .nav-links {
@@ -69,7 +70,7 @@ nav {
     color: #FFD700;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     transition: all 0.3s ease;
 }
 
@@ -84,6 +85,9 @@ nav {
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
+    position: absolute;
+    right: 20px;
+    top: 12px;
 }
 .hamburger div {
     width: 28px;
@@ -138,7 +142,7 @@ nav {
 }
 
 .hero-slide h2 {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     font-weight: bold;
     margin-bottom: 15px;
     color: #fff;
@@ -213,11 +217,13 @@ nav {
 }
 
 .director-profile img {
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 20px;
+    opacity: 0.9;
+    transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 /* ===================== Footer ===================== */
@@ -225,14 +231,16 @@ footer {
     background-color: #0B3D91;
     color: white;
     text-align: center;
-    padding: 40px 20px;
-    font-weight: bold;
+    padding: 25px 15px;
+    font-weight: 500;
+    font-size: 0.95rem;
 }
 
 .footer-flag {
     display: flex;
-    height: 8px;
+    height: 6px;
     width: 100%;
+    margin-bottom: 15px;
 }
 
 .footer-flag span {
@@ -248,36 +256,40 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 30px;
+    gap: 25px;
+    text-align: left;
 }
 
 .footer-section {
     flex: 1 1 220px;
-    min-width: 220px;
+    min-width: 200px;
 }
 
 .footer-section h3,
 .footer-section h4 {
     color: #FFD700;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     font-weight: bold;
+    font-size: 1.05rem;
 }
 
 .footer-text {
     color: #eee;
-    line-height: 1.6;
-    margin-bottom: 10px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
 }
 
 .footer-links ul,
 .footer-policies ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .footer-links li,
 .footer-policies li {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .footer-links li a,
@@ -285,6 +297,7 @@ footer {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s ease;
+    font-size: 0.9rem;
 }
 
 .footer-links li a:hover,
@@ -292,61 +305,68 @@ footer {
     color: #FFD700;
 }
 
-.footer-contacts {
+/* Footer Contacts & Social Icons */
+.footer-contacts,
+.social-icons {
     display: flex;
     gap: 15px;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
-.footer-contacts img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-    transition: transform 0.3s ease;
+.footer-contacts a i,
+.social-icons a i {
+    font-size: 1.5rem;
+    color: #fff;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
-
-.footer-contacts img:hover {
+.footer-contacts a i:hover,
+.social-icons a i:hover {
     transform: scale(1.2);
+    color: #FFD700;
 }
 
 .footer-bottom {
     text-align: center;
-    padding: 20px 0 0;
-    font-size: 0.9rem;
+    padding: 15px 0 5px;
+    font-size: 0.85rem;
     color: #ccc;
 }
 
 /* ===================== Responsive ===================== */
-@media screen and (max-width:768px){
+@media screen and (max-width: 768px) {
     .nav-links {
         display: none;
         flex-direction: column;
         background-color: #8B0000;
         width: 100%;
-        padding: 10px 0;
+        padding: 15px 0;
         position: absolute;
-        top: 120px;
-        right: 0;
+        top: 100%;
+        left: 0;
     }
     .nav-links.show { display: flex; }
     .hamburger { display: flex; }
 
-    header { flex-direction: column; align-items: flex-start; }
-    .top-ribbon { flex-direction: column; gap: 10px; }
-    .top-ribbon .org-info { text-align: left; margin-top: 10px; }
-
     .hero { height: 350px; }
     .hero-slide h2 { font-size: 1.8rem; }
     .hero-slide p { font-size: 1rem; }
-    .director-profile { margin: 30px 10px; padding: 25px; }
-    .director-profile img { width: 150px; height: 150px; }
+
+    .director-profile {
+        margin: 30px 12px;
+        padding: 20px;
+    }
+    .director-profile img {
+        width: 150px;
+        height: 150px;
+    }
 
     .footer-container {
         flex-direction: column;
-        gap: 20px;
+        gap: 18px;
+        text-align: center;
     }
-    .footer-contacts {
-        justify-content: flex-start;
+    .footer-contacts,
+    .social-icons {
+        justify-content: center;
     }
 }

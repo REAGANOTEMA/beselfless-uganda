@@ -5,7 +5,7 @@ const navLinks = document.querySelector('.nav-links');
 if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('show');
-        hamburger.classList.toggle('active'); // optional animation
+        hamburger.classList.toggle('active');
     });
 }
 
@@ -87,16 +87,17 @@ if (contactForm) {
 }
 
 // ===================== Footer Icon Hover Animation =====================
-const footerIcons = document.querySelectorAll('.footer-contacts a img');
+// Now targets <i> icons instead of <img>
+const footerIcons = document.querySelectorAll('.footer-contacts a i, .social-icons a i');
 footerIcons.forEach(icon => {
     icon.addEventListener('mouseenter', () => {
-        icon.style.transform = "scale(1.2)";
-        icon.style.transition = "transform 0.3s ease, box-shadow 0.3s ease";
-        icon.style.boxShadow = "0 4px 12px rgba(255,255,255,0.5)";
+        icon.style.transform = "scale(1.3)";
+        icon.style.transition = "transform 0.3s ease, color 0.3s ease";
+        icon.style.color = "#FFD700";
     });
     icon.addEventListener('mouseleave', () => {
         icon.style.transform = "scale(1)";
-        icon.style.boxShadow = "none";
+        icon.style.color = "#fff";
     });
 });
 
@@ -115,7 +116,7 @@ if (footerBottom) {
     const backToTop = document.createElement('button');
     backToTop.textContent = "↑ Back to Top";
     backToTop.style.cssText = `
-        padding: 8px 12px;
+        padding: 6px 10px;
         margin-top: 10px;
         background-color: #FFD700;
         border: none;
@@ -123,6 +124,7 @@ if (footerBottom) {
         cursor: pointer;
         font-weight: bold;
         color: #8B0000;
+        font-size: 0.85rem;
     `;
     backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -131,8 +133,8 @@ if (footerBottom) {
 }
 
 // ===================== Dynamic Year Update =====================
-const copyrightYear = new Date().getFullYear();
-const copyrightEl = document.querySelector('.footer-bottom p:first-child');
-if (copyrightEl) {
-    copyrightEl.innerHTML = `&copy; ${copyrightYear} Be Selfless Uganda. All rights reserved.`;
+const currentYear = new Date().getFullYear();
+const yearSpan = document.getElementById('currentYear');
+if (yearSpan) {
+    yearSpan.textContent = currentYear;
 }
