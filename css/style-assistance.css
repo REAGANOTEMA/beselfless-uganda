@@ -446,3 +446,19 @@ main {
     .footer-container { flex-direction: column; gap: 20px; }
     .footer-contacts, .social-icons { justify-content: flex-start; }
 }
+/* ===================== Remove Extra Spacing Between Words ===================== */
+body, h1, h2, h3, h4, h5, h6, p, a, li {
+    word-spacing: normal;
+    letter-spacing: normal;
+}
+
+.program-intro p,
+.leader-card p,
+.leader-with-students p,
+.achievement-card p,
+.footer-text,
+.footer-links li a,
+.footer-policies li a {
+    word-spacing: normal;
+    letter-spacing: normal;
+}
