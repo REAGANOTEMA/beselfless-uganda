@@ -9,6 +9,16 @@ if (hamburger && navLinks) {
     });
 }
 
+// Close menu when a link is clicked (mobile friendly)
+document.querySelectorAll('.nav-links li a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (navLinks.classList.contains('show')) {
+            navLinks.classList.remove('show');
+            hamburger.classList.remove('active');
+        }
+    });
+});
+
 // ===================== Animate Form on Scroll =====================
 const applicationForm = document.querySelector('.application-form');
 
@@ -52,28 +62,29 @@ if (form && feedback) {
                 form.reset();
             } else {
                 const data = await response.json();
-                feedback.textContent = data.errors 
-                    ? data.errors.map(err => err.message).join(", ") 
+                feedback.textContent = data.errors
+                    ? data.errors.map(err => err.message).join(", ")
                     : "❌ Submission failed. Please try again.";
                 feedback.className = "error";
             }
         } catch (error) {
             feedback.textContent = "❌ Network error. Please check your internet and retry.";
             feedback.className = "error";
+            console.error(error);
         }
     });
 }
 
 // ===================== Footer Icons Hover Animation =====================
-const footerIcons = document.querySelectorAll('.footer-contacts a img');
+const footerIcons = document.querySelectorAll('.footer-contacts a i, .footer-social a i');
 footerIcons.forEach(icon => {
     icon.addEventListener('mouseenter', () => {
-        icon.style.transform = "scale(1.2)";
-        icon.style.boxShadow = "0 4px 12px rgba(255,255,255,0.5)";
+        icon.style.transform = "scale(1.3)";
+        icon.style.color = "#FFD700";
     });
     icon.addEventListener('mouseleave', () => {
         icon.style.transform = "scale(1)";
-        icon.style.boxShadow = "none";
+        icon.style.color = "#fff";
     });
 });
 
@@ -125,7 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const goBackBtn = document.querySelector('.go-back-btn');
     if (!goBackBtn) return;
 
-    // Pulsing light effect every 2 seconds
     setInterval(() => {
         goBackBtn.style.boxShadow = "0 0 15px #FFD700";
         setTimeout(() => goBackBtn.style.boxShadow = "0 0 0px #FFD700", 1000);

@@ -17,9 +17,7 @@ if (hamburger && navLinks) {
 // ===================== Animate Images on Scroll (Intersection Observer) =====================
 const animateImages = document.querySelectorAll('.assistance-profile img, .leader-card img, .leader-with-students img, .achievement-img-wrapper img');
 
-const observerOptions = {
-    threshold: 0.1
-};
+const observerOptions = { threshold: 0.1 };
 
 const animateOnScroll = (entries, observer) => {
     entries.forEach(entry => {
@@ -52,17 +50,17 @@ animateImages.forEach(img => {
     });
 });
 
-// ===================== Footer Icons Animation =====================
-const footerIcons = document.querySelectorAll('.footer-contacts img');
+// ===================== Footer Icons Animation (Contacts + Social) =====================
+const footerIcons = document.querySelectorAll('.footer-contacts a i, .social-icons a i');
 footerIcons.forEach(icon => {
     icon.addEventListener('mouseenter', () => {
         icon.style.transform = "scale(1.2)";
-        icon.style.transition = "transform 0.3s ease, box-shadow 0.3s ease";
-        icon.style.boxShadow = "0 4px 12px rgba(255,255,255,0.5)";
+        icon.style.transition = "transform 0.3s ease, color 0.3s ease";
+        icon.style.color = "#FFD700";
     });
     icon.addEventListener('mouseleave', () => {
         icon.style.transform = "scale(1)";
-        icon.style.boxShadow = "none";
+        icon.style.color = "rgba(255, 255, 255, 0.9)";
     });
 });
 

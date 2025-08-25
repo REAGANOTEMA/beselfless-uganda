@@ -1,5 +1,6 @@
 // ===================== Ensure DOM Ready =====================
 document.addEventListener('DOMContentLoaded', () => {
+
   // ===================== Hamburger Toggle =====================
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.querySelector('.nav-links');
@@ -21,16 +22,23 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', animateStudents);
   animateStudents();
 
-  // Hover effect for smoother perf
+  // Hover effect for smoother performance
   students.forEach(st => {
     st.addEventListener('mouseenter', () => st.classList.add('hovered'));
     st.addEventListener('mouseleave', () => st.classList.remove('hovered'));
   });
 
-  // ===================== Footer Contact Icons Hover =====================
-  document.querySelectorAll('.footer-contacts a img').forEach(icon => {
-    icon.addEventListener('mouseenter', () => icon.classList.add('hovered'));
-    icon.addEventListener('mouseleave', () => icon.classList.remove('hovered'));
+  // ===================== Footer Contact & Social Icons Hover =====================
+  const iconSelectors = document.querySelectorAll('.footer-contacts i, .social-icons i');
+  iconSelectors.forEach(icon => {
+    icon.addEventListener('mouseenter', () => {
+      icon.style.transform = 'scale(1.2)';
+      icon.style.color = '#FFD700';
+    });
+    icon.addEventListener('mouseleave', () => {
+      icon.style.transform = 'scale(1)';
+      icon.style.color = '#fff';
+    });
   });
 
   // ===================== Smooth Scroll for Footer Links =====================
@@ -55,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ===================== Dynamic Year Update =====================
-  const yearEl = document.querySelector('#currentYear') || document.querySelector('.footer-bottom p span');
+  const yearEl = document.querySelector('#currentYear');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   // ===================== Hero Slideshow (every 3s) =====================
@@ -74,9 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroBtn = document.getElementById('hero-btn');
   if (heroBtn) {
     // Fade effect every 2s
-    setInterval(() => {
-      heroBtn.classList.toggle('fade');
-    }, 2000);
+    setInterval(() => heroBtn.classList.toggle('fade'), 2000);
 
     // Shake effect every 4s
     setInterval(() => {

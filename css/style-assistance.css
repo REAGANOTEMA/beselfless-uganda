@@ -101,6 +101,7 @@ nav {
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
+    z-index: 200;
 }
 
 .hamburger div {
@@ -269,7 +270,7 @@ main {
     box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }
 
-/* Animate images (for JS intersection observer) */
+/* Animate images */
 .animate-img {
     opacity: 0;
     transform: translateY(20px);
@@ -314,7 +315,7 @@ main {
 /* ===================== Footer ===================== */
 .footer-flag {
     display: flex;
-    height: 8px;
+    height: 6px;
     width: 100%;
 }
 
@@ -326,7 +327,8 @@ main {
 .footer {
     background-color: #0B3D91;
     color: #fff;
-    padding: 40px 20px;
+    padding: 30px 20px;
+    font-size: 0.95rem;
 }
 
 .footer-container {
@@ -335,7 +337,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 30px;
+    gap: 25px;
 }
 
 .footer-section { 
@@ -351,7 +353,7 @@ main {
 }
 
 .footer-text { 
-    color: #eee; 
+    color: #fff; 
     line-height: 1.6; 
     margin-bottom: 10px; 
 }
@@ -379,28 +381,40 @@ main {
     color: #FFD700; 
 }
 
-.footer-contacts { 
-    display: flex; 
-    gap: 15px; 
-    margin-top: 10px; 
+/* ================= Contacts & Social Icons ================= */
+.footer-contacts, .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
 }
 
-.footer-contacts img { 
-    width: 40px; 
-    height: 40px; 
-    object-fit: contain; 
-    filter: brightness(0) invert(1); 
-    transition: transform 0.3s ease; 
+.footer-contacts a i, 
+.social-icons a i {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.footer-contacts img:hover { 
-    transform: scale(1.2); 
+.footer-contacts a i:hover, 
+.social-icons a i:hover {
+    transform: scale(1.2);
+    color: #FFD700;
 }
 
+/* Optional: make links clickable area bigger */
+.footer-contacts a,
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+/* Footer bottom */
 .footer-bottom { 
     text-align: center; 
-    padding: 20px 0 0; 
-    font-size: 0.9rem; 
+    padding: 15px 0 0; 
+    font-size: 0.85rem; 
     color: #ccc; 
 }
 
@@ -430,5 +444,5 @@ main {
     .achievement-img-wrapper img { width: 90%; }
     .program-highlights ul { padding-left: 15px; }
     .footer-container { flex-direction: column; gap: 20px; }
-    .footer-contacts { justify-content: flex-start; }
+    .footer-contacts, .social-icons { justify-content: flex-start; }
 }

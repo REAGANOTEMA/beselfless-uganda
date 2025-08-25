@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Application Form - Be Selfless (U)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style-application.css">
 </head>
 <body>
@@ -20,7 +21,7 @@
   </div>
 
   <nav>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="history.html">History</a></li>
       <li><a href="techcenters.html">Tech Centers</a></li>
@@ -39,17 +40,12 @@
   </nav>
 </header>
 
-<!-- Go Back Homepage Button -->
-<button class="go-back-btn" onclick="window.location.href='index.html'">
-  Go Back Homepage
-</button>
+<button class="go-back-btn" onclick="window.location.href='index.html'">Go Back Homepage</button>
 
 <main>
-  <form class="application-form" 
-        id="applicationForm" 
+  <form class="application-form" id="applicationForm" 
         action="https://formspree.io/f/xkgzglez" 
-        method="POST" 
-        enctype="multipart/form-data">
+        method="POST" enctype="multipart/form-data">
     <h1>Application Form</h1>
 
     <label for="fullname">Full Name</label>
@@ -83,6 +79,7 @@
   </form>
 </main>
 
+<!-- ================== FOOTER ================== -->
 <footer class="footer">
   <div class="footer-flag">
     <span class="black"></span>
@@ -94,7 +91,7 @@
     <div class="footer-section about">
       <h3>Be Selfless (U)</h3>
       <p class="footer-text">"Nurturing Resilient Minds"</p>
-      <p class="footer-text">We empower students through education, mentorship, and tech-centered learning initiatives across Uganda. Join us to make a meaningful impact.</p>
+      <p class="footer-text">Empowering students through education, mentorship, and tech learning initiatives across Uganda.</p>
     </div>
 
     <div class="footer-section footer-links">
@@ -121,13 +118,19 @@
     </div>
 
     <div class="footer-section footer-contact">
-      <h4>Connect With Us</h4>
+      <h4>Contact Us</h4>
       <div class="footer-contacts">
-        <a href="mailto:beselflessuganda@gmail.com" title="Email"><img src="images/email.png" alt="Email"></a>
-        <a href="https://www.facebook.com/share/19YYJZrtJh/" title="Facebook"><img src="images/facebook.png" alt="Facebook"></a>
-        <a href="https://youtu.be/YgD0dxCKyFU?feature=shared" title="YouTube"><img src="images/youtube.png" alt="YouTube"></a>
-        <a href="tel:+256200926095" title="Phone"><img src="images/mobile.webp" alt="Phone"></a>
-        <a href="https://wa.me/256752246215" target="_blank" title="WhatsApp"><img src="images/whatsapp.png" alt="WhatsApp"></a>
+        <a href="mailto:beselflessuganda@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+256200926095" title="Phone"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/256752246215" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-section footer-social">
+      <p>Follow us on social media for updates!</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/19YYJZrtJh/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://youtu.be/YgD0dxCKyFU?feature=shared" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
   </div>
@@ -137,6 +140,25 @@
     <p class="footer-text">Designed to empower, educate, and inspire the next generation of leaders in Uganda.</p>
   </div>
 </footer>
+
+<script>
+  // Dynamic Year
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+    hamburger.classList.toggle('active');
+  });
+
+  // Reveal form animation
+  window.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('.application-form');
+    setTimeout(() => form.classList.add('visible'), 300);
+  });
+</script>
 
 <script src="js/script-application.js"></script>
 </body>
