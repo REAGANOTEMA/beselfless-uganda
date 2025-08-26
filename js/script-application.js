@@ -141,17 +141,24 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => goBackBtn.style.boxShadow = "0 0 0px #FFD700", 1000);
     }, 2000);
 })();
-// ===================== Download Button Light-Up Animation =====================
+
+// ===================== Download Button Shake & Light-Up =====================
 (function() {
     const downloadBtn = document.querySelector('.download-btn');
     if (!downloadBtn) return;
 
+    // Shake every 2 seconds
     setInterval(() => {
-        // Light up
+        downloadBtn.style.transform = "translateX(-3px)";
+        setTimeout(() => downloadBtn.style.transform = "translateX(3px)", 100);
+        setTimeout(() => downloadBtn.style.transform = "translateX(-3px)", 200);
+        setTimeout(() => downloadBtn.style.transform = "translateX(3px)", 300);
+        setTimeout(() => downloadBtn.style.transform = "translateX(0)", 400);
+    }, 2000);
+
+    // Light up every 4 seconds
+    setInterval(() => {
         downloadBtn.style.boxShadow = "0 0 15px #FFD700";
-        // Remove light after 1 second
-        setTimeout(() => {
-            downloadBtn.style.boxShadow = "0 0 0px #FFD700";
-        }, 1000);
-    }, 4000); // Every 4 seconds
+        setTimeout(() => downloadBtn.style.boxShadow = "0 0 0px #FFD700", 1000);
+    }, 4000);
 })();
