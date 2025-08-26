@@ -1,6 +1,6 @@
 /* ===================== General Body ===================== */
 body { 
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   background: url('../images/background-tech.jpg') no-repeat center center fixed;
@@ -69,6 +69,7 @@ header {
 nav {
   width: 100%;
   background-color: #8B0000;
+  position: relative;
 }
 
 .nav-links {
@@ -97,6 +98,9 @@ nav {
   flex-direction: column;
   cursor: pointer;
   gap: 5px;
+  position: absolute;
+  top: 15px;
+  right: 20px;
 }
 
 .hamburger div {
@@ -110,113 +114,52 @@ nav {
 .hamburger.active div:nth-child(2) { opacity: 0; }
 .hamburger.active div:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
 
-/* ===================== Application Form ===================== */
-form.application-form {
+/* ===================== Container ===================== */
+.container {
   max-width: 700px;
   margin: 50px auto;
-  background: rgba(255,255,255,0.95);
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
-  opacity: 0;
-  transform: translateY(20px) scale(0.95);
-  transition: transform 0.8s ease, opacity 0.8s ease;
-  color: #333;
-}
-
-form.application-form.visible { 
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-form.application-form h1 { 
+  background: rgba(255,255,255,0.95);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
   text-align: center;
-  color: #8B0000;
-  margin-bottom: 30px;
 }
 
-form.application-form label { 
-  display: block;
-  margin: 10px 0 5px;
-  font-weight: bold;
+.container h1 {
+  color: #0077cc;
+  margin-bottom: 10px;
 }
 
-form.application-form input,
-form.application-form textarea,
-form.application-form select {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 20px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+.container p {
+  color: #555;
+  font-size: 14px;
 }
 
-/* ===================== File Input Styling ===================== */
-form.application-form input[type="file"] {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: #fff;
-  cursor: pointer;
+.container h2 {
+  margin: 20px 0;
+  color: #444;
 }
 
-form.application-form input[type="file"]::file-selector-button {
-  background-color: #8B0000;
-  color: #FFD700;
-  border: none;
-  border-radius: 6px;
-  padding: 8px 15px;
-  margin-right: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  animation: pulseAllButtons 2s infinite, floatButton 3s infinite ease-in-out;
-}
-
-form.application-form input[type="file"]::file-selector-button:hover {
-  transform: scale(1.05);
-  background-color: #a50000;
-}
-
-/* ===================== Submit Button ===================== */
-form.application-form button {
-  background-color: #8B0000;
-  color: #FFD700;
-  padding: 14px 25px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  animation: pulseAllButtons 2s infinite, floatButton 3s infinite ease-in-out;
-}
-
-form.application-form button:hover { 
-  transform: scale(1.05);
-  background-color: #a50000; 
-}
-
-/* ===================== Go Back Homepage Button ===================== */
-.go-back-btn {
+/* ===================== Download Button ===================== */
+.btn {
   display: inline-block;
-  margin: 20px auto 40px;
-  padding: 12px 25px;
+  padding: 14px 28px;
+  margin: 20px 0;
+  border-radius: 50px;
+  text-decoration: none;
   font-weight: bold;
-  font-size: 1rem;
-  border-radius: 6px;
-  background-color: #FFD700;
-  color: #8B0000;
-  border: none;
-  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
   transition: all 0.3s ease;
-  position: relative;
+  cursor: pointer;
+  background: #0077cc;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   animation: pulseAllButtons 2s infinite, floatButton 3s infinite ease-in-out;
 }
 
-.go-back-btn:hover {
-  transform: scale(1.05);
-  background-color: #FFC300;
+.btn:hover {
+  background: #005fa3;
+  transform: scale(1.08);
 }
 
 /* ===================== Button Animations ===================== */
@@ -240,9 +183,7 @@ form.application-form button:hover {
   width: 100%;
 }
 
-.footer-flag span {
-  flex: 1;
-}
+.footer-flag span { flex: 1; }
 
 .footer-flag .black { background-color: #000; }
 .footer-flag .yellow { background-color: #FFD700; }
@@ -252,7 +193,7 @@ form.application-form button:hover {
   background-color: #0B3D91;
   color: #fff;
   font-family: Arial, sans-serif;
-  padding: 30px 20px;
+  padding: 20px;
 }
 
 .footer-container {
@@ -317,20 +258,20 @@ form.application-form button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   background-color: transparent;
   border-radius: 50%;
   border: 1px solid #fff;
   transition: all 0.3s ease;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .footer-contacts a:hover {
   background-color: #fff;
   color: #0B3D91;
-  transform: scale(1.3);
+  transform: scale(1.2);
 }
 
 /* ===================== Footer Social Icons ===================== */
@@ -347,97 +288,47 @@ form.application-form button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   background-color: transparent;
   border-radius: 50%;
   border: 1px solid #fff;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   transition: all 0.3s ease;
 }
 
 .footer-social a:hover {
   background-color: #fff;
   color: #0B3D91;
-  transform: scale(1.3);
+  transform: scale(1.2);
 }
 
 .footer-bottom {
   text-align: center;
   padding: 15px 0 0;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #ccc;
 }
 
-/* ===================== Responsive Footer & Form ===================== */
+/* ===================== Responsive Styles ===================== */
 @media screen and (max-width:768px) {
   .footer-container { flex-direction: column; gap: 20px; }
   .footer-contacts, .footer-social .social-icons { justify-content: center; }
-  form.application-form input[type="file"], form.application-form button, .go-back-btn {
-    width: 100%;
-    padding: 12px;
-    font-size: 0.9rem;
+  .btn { width: 100%; font-size: 0.95rem; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 100;
   }
-}
-
-/* ===================== Hamburger Mobile Styles ===================== */
-.nav-links {
-  display: none;
-  flex-direction: column;
-  background: #fff;
-  position: absolute;
-  top: 60px;
-  right: 10px;
-  width: 200px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  z-index: 100;
-}
-
-.nav-links.show { display: flex; }
-
-@media (max-width: 768px) { .hamburger { display: flex; } }
-/* ===================== Download Button Section ===================== */
-.download-section {
-  text-align: center;
-  margin: 40px auto 20px;
-}
-
-.download-section h2 {
-  color: #8B0000;
-  margin-bottom: 10px;
-}
-
-.download-section p {
-  color: #333;
-  font-size: 14px;
-  margin-bottom: 15px;
-}
-
-.download-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  font-weight: bold;
-  font-size: 0.9rem;
-  border-radius: 6px;
-  background-color: #8B0000;
-  color: #FFD700;
-  text-decoration: none;
-  cursor: pointer;
-  border: none;
-  transition: all 0.3s ease;
-  animation: shakeButton 2s infinite;
-}
-
-.download-btn:hover {
-  transform: scale(1.05);
-  background-color: #a50000;
-}
-
-/* ===================== Shake Animation ===================== */
-@keyframes shakeButton {
-  0%, 100% { transform: translateX(0); }
-  10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
-  20%, 40%, 60%, 80% { transform: translateX(3px); }
+  .nav-links.show { display: flex; }
+  .nav-links li a { color: #8B0000; padding: 10px; }
+  .hamburger { display: flex; }
 }

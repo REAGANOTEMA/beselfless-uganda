@@ -43,6 +43,16 @@
 <button class="go-back-btn" onclick="window.location.href='index.html'">Go Back Homepage</button>
 
 <main>
+  <!-- ========== DOWNLOAD LINK SECTION ========== -->
+  <section class="download-section">
+    <h2>Download Sponsorship Application Form</h2>
+    <p>Please download the form, fill it offline, and then upload it below along with your application details.</p>
+    <a href="files/Beselfless Application Form.docx" class="btn download-btn" download>
+      ⬇ Download Application Form (DOCX)
+    </a>
+  </section>
+
+  <!-- ========== APPLICATION FORM ========== -->
   <form class="application-form" id="applicationForm" 
         action="https://formspree.io/f/xkgzglez" 
         method="POST" enctype="multipart/form-data">
@@ -71,8 +81,8 @@
     <label for="message">Why do you want to join?</label>
     <textarea id="message" name="message" rows="5" required></textarea>
 
-    <label for="document">Upload Your Document (PDF or Word)</label>
-    <input type="file" id="document" name="document" accept=".pdf,.doc,.docx" required>
+    <label for="document">Upload Your Filled Form (DOCX only)</label>
+    <input type="file" id="document" name="document" accept=".doc,.docx" required>
 
     <button type="submit">Submit Application</button>
     <div id="formFeedback"></div>
