@@ -435,3 +435,102 @@ main {
     .footer-container { flex-direction: column; gap: 15px; }
     .footer-contacts, .social-icons { justify-content: flex-start; }
 }
+/* ===================== Mobile Improvements ===================== */
+@media screen and (max-width: 768px) {
+
+    /* Header & Top Ribbon */
+    header {
+        padding: 15px 15px;
+        align-items: center; /* Center for balance */
+    }
+
+    .top-ribbon {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .top-ribbon .logo {
+        width: 80px;
+        height: 80px;
+        border-width: 3px;
+    }
+
+    .top-ribbon .org-info h1 {
+        font-size: 1.4rem;
+        line-height: 1.2;
+    }
+
+    .top-ribbon .org-info p {
+        font-size: 1rem;
+    }
+
+    /* Navigation */
+    .nav-links {
+        top: 100%;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        font-size: 1.2rem;
+        padding: 8px 0;
+        display: block;
+    }
+
+    .hamburger {
+        gap: 6px;
+    }
+
+    .hamburger div {
+        width: 28px;
+        height: 4px;
+    }
+
+    /* Leaders Section */
+    .leaders {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .leader-card,
+    .leader-with-students {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .leader-card img {
+        width: 140px;
+        height: 140px;
+    }
+
+    /* Achievements Section */
+    .achievement-img-wrapper {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .achievement-img-wrapper img {
+        width: 95%;
+        max-width: 350px;
+    }
+
+    /* Program Highlights */
+    .program-highlights ul {
+        padding-left: 20px;
+    }
+
+    /* Footer */
+    .footer-container {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-contacts,
+    .social-icons {
+        justify-content: center;
+    }
+}
