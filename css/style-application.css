@@ -426,8 +426,8 @@ form.application-form button:hover {
   text-decoration: none;
   cursor: pointer;
   border: none;
-  transition: all 0.3s ease;
-  animation: shakeButton 2s infinite;
+  transition: all 0.3s ease, box-shadow 0.5s ease;
+  animation: shakeButton 2s infinite, pulseLight 4s infinite;
 }
 
 .download-btn:hover {
@@ -440,4 +440,27 @@ form.application-form button:hover {
   0%, 100% { transform: translateX(0); }
   10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
   20%, 40%, 60%, 80% { transform: translateX(3px); }
+}
+
+/* ===================== Light Pulse Animation ===================== */
+@keyframes pulseLight {
+  0%, 100% { box-shadow: 0 0 0px rgba(255, 255, 0, 0.5); }
+  50% { box-shadow: 0 0 15px rgba(255, 255, 0, 0.8); }
+}
+
+/* ===================== Responsive Download Button ===================== */
+@media screen and (max-width: 768px) {
+  .download-btn {
+    width: 90%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .download-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .download-section p {
+    font-size: 13px;
+  }
 }
