@@ -12,9 +12,9 @@ if (hamburger && navLinks) {
 /* ===================== Donate Hero Backgrounds ===================== */
 const donateHero = document.querySelector(".donate-hero");
 const donateHeroImages = [
-  "images/donate-hero1.jpg",
-  "images/donate-hero2.jpg",
-  "images/donate-hero3.jpg"
+  "images/smile1.jpg",
+  "images/smile2.jpg",
+  "images/smile3.jpg"
 ];
 let currentDonateBg = 0;
 

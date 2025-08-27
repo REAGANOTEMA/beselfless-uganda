@@ -108,31 +108,59 @@ nav {
 
 /* ===================== Hero Section (Donate) ===================== */
 .donate-hero {
-    background: url("../images/donate-hero.jpg") rgba(0,0,0,0.55);
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: darken;
-    height: 400px;
+    background: url("../images/background1.webp") center center / cover no-repeat;
+    position: relative;
+    height: 100vh; /* full screen on PC */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 0 20px;
+    overflow: hidden;
+}
+
+/* Add a subtle dark overlay to keep text readable but image still clear */
+.donate-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35); /* lighter overlay for visibility */
+    z-index: 1;
+}
+
+.donate-hero h2,
+.donate-hero p {
+    position: relative;
+    z-index: 2; /* keep text above overlay */
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
 }
 
 .donate-hero h2 {
-    font-size: 2.8rem;
+    font-size: 3rem;
     color: #FFD700;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
     margin-bottom: 15px;
 }
 .donate-hero p {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: #fff;
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+}
+
+/* ===================== Responsive Hero ===================== */
+@media screen and (max-width: 768px) {
+    .donate-hero {
+        height: 60vh; /* smaller height for mobile */
+        padding: 0 15px;
+        background-position: top center; /* focus top for mobile */
+    }
+    .donate-hero h2 {
+        font-size: 2rem;
+    }
+    .donate-hero p {
+        font-size: 1rem;
+    }
 }
 
 /* ===================== Donation Section ===================== */
