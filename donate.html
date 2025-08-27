@@ -3,12 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Application Form - BeSelfless (U)</title>
+  <title>Donate - BeSelfless (U)</title>
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/style-application.css">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/style-directors.css">
+  <link rel="stylesheet" href="css/style-donate.css"> <!-- optional custom donate styles -->
 </head>
 <body>
 
+<!-- ===================== Header ===================== -->
 <header>
   <div class="top-ribbon">
     <div class="logo">
@@ -19,19 +26,18 @@
       <p>"Nurturing Resilient Minds"</p>
     </div>
   </div>
-
   <nav>
-    <ul class="nav-links" id="navLinks">
+    <ul class="nav-links">
       <li><a href="index.html">HOMEPAGE</a></li>
+      <li><a href="Programs.html">PROGRAMS</a></li>
+      <li><a href="FAQ.html">FAQ</a></li>
       <li><a href="history.html">HISTORY</a></li>
       <li><a href="techcenters.html">TECH CENTERS</a></li>
-      <li><a href="students.html">STUDENTS</a></li>
-      <li><a href="Programs.html">PROGRAMS</a></li>
       <li><a href="Apply.html">APPLY NOW</a></li>
       <li><a href="events.html">EVENTS</a></li>
       <li><a href="contact.html">CONTACT</a></li>
+      <li><a href="policy.html">TERMS & POLICIES</a></li>
     </ul>
-
     <div class="hamburger" id="hamburger">
       <div></div>
       <div></div>
@@ -40,57 +46,66 @@
   </nav>
 </header>
 
-<button class="go-back-btn" onclick="window.location.href='index.html'">Go Back Homepage</button>
+<!-- ===================== Hero Section ===================== -->
+<section class="hero donate-hero">
+  <div class="hero-text-container">
+    <h2>Your Support Changes Lives</h2>
+    <p>Every contribution helps us empower students and build resilient communities in Uganda.</p>
+  </div>
+</section>
 
-<main>
-  <!-- ========== DOWNLOAD LINK SECTION ========== -->
-  <section class="download-section">
-    <h2>Download Sponsorship Application Form</h2>
-    <p>Please download the form, fill it offline, and then upload it below along with your application details.</p>
-    <a href="files/Beselfless Application Form.docx" class="btn download-btn" download>
-      ⬇ Download Application Form Here
-    </a>
-  </section>
+<!-- ===================== Donation Section ===================== -->
+<section class="donate-section">
+  <h2>Make a Donation</h2>
+  <p class="motivation">
+    At BeSelfless (U), your generosity supports scholarships, mentorship, and the development of tech centers that nurture young minds. 
+    Together, we can build a future full of opportunities.
+  </p>
 
-  <!-- ========== APPLICATION FORM ========== -->
-  <form class="application-form" id="applicationForm" 
-        action="https://formspree.io/f/xkgzglez" 
-        method="POST" enctype="multipart/form-data">
-    <h1>Application Form</h1>
+  <div class="donate-options">
+    <div class="donate-card">
+      <i class="fas fa-graduation-cap fa-2x"></i>
+      <h3>Scholarships</h3>
+      <p>Help a student gain access to education and resources to achieve their dreams.</p>
+      <a href="#" class="donate-btn">Donate</a>
+    </div>
 
-    <label for="fullname">Full Name</label>
-    <input type="text" id="fullname" name="fullname" required>
+    <div class="donate-card">
+      <i class="fas fa-laptop fa-2x"></i>
+      <h3>Tech Centers</h3>
+      <p>Support digital learning hubs that equip youth with modern skills for tomorrow.</p>
+      <a href="#" class="donate-btn">Donate</a>
+    </div>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="_replyto" required>
+    <div class="donate-card">
+      <i class="fas fa-hand-holding-heart fa-2x"></i>
+      <h3>General Support</h3>
+      <p>Contribute towards our ongoing programs, outreach, and mentorship efforts.</p>
+      <a href="#" class="donate-btn">Donate</a>
+    </div>
+  </div>
 
-    <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" name="phone" required>
+  <div class="donate-methods">
+    <h3>Ways to Donate</h3>
+   <div class="donate-methods">
+  <h3>Bank Transfer</h3>
+  <ul>
+    <li><i class="fas fa-university"></i> 
+      Centenary Bank Uganda
+    </li>
+    <li><i class="fas fa-user"></i> Account Name: <strong>BeSelfless (U)</strong></li>
+    <li><i class="fas fa-hashtag"></i> Account Number: <strong>1234567890</strong></li>
+    <li><i class="fas fa-map-marker-alt"></i> Branch: Kampala Main</li>
+  </ul>
+</div>
+ <li><i class="fab fa-paypal"></i> PayPal: <a href="#">paypal.me/beselfless</a> <a href="https://www.paypal.com/paypal.me/beselfless">Link</a></li>
+      <li><i class="fab fa-whatsapp"></i> Mobile Money: Contact us via <a href="https://wa.me/256752246215" target="_blank">WhatsApp</a></li>
+    </ul>
+  </div>
+</section>
 
-    <label for="center">Preferred Tech Center</label>
-    <select id="center" name="center" required>
-      <option value="">Select a center</option>
-      <option value="Freedom City - Kampala">Freedom City</option>
-      <option value="Jinja">Jinja</option>
-      <option value="Lira">Lira</option>
-      <option value="Masaka">Masaka</option>
-      <option value="Mukono">Mukono</option>
-      <option value="Ntinda">Ntinda</option>
-    </select>
-
-    <label for="message">Why do you want to join?</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
-
-    <label for="document">Upload Your Filled Form (DOCX only)</label>
-    <input type="file" id="document" name="document" accept=".doc,.docx" required>
-
-    <button type="submit">Submit Application</button>
-    <div id="formFeedback"></div>
-  </form>
-</main>
-
-<!-- ================== FOOTER ================== -->
-<footer class="footer">
+<!-- ===================== FOOTER ===================== -->
+<footer>
   <div class="footer-flag">
     <span class="black"></span>
     <span class="yellow"></span>
@@ -139,7 +154,7 @@
     </div>
 
     <div class="footer-section footer-social">
-      <p>Follow us on social media for updates!</p>
+      <h4>Follow Us</h4>
       <div class="social-icons">
         <a href="https://www.facebook.com/share/19YYJZrtJh/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="https://youtu.be/YgD0dxCKyFU?feature=shared" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
@@ -153,25 +168,10 @@
   </div>
 </footer>
 
+<!-- ===================== JS ===================== -->
+<script src="js/script-donate.js"></script>
 <script>
-  // Dynamic Year
   document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-  // Hamburger toggle
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-    hamburger.classList.toggle('active');
-  });
-
-  // Reveal form animation
-  window.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('.application-form');
-    setTimeout(() => form.classList.add('visible'), 300);
-  });
 </script>
-
-<script src="js/script-application.js"></script>
 </body>
 </html>
